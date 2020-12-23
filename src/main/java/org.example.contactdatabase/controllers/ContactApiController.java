@@ -29,13 +29,10 @@ public class ContactApiController {
 
     @GetMapping("/contacts/all")
     public void getAllContacts(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-
         System.out.println("get");
         List<Contact> contacts = contactDao.getAllContacts();
-
         GetContactsResponse response = new GetContactsResponse("ok", "", contacts);
         resp.getWriter().write(gson.toJson(response));
-
     }
 
     @PostMapping("/contacts/add")
